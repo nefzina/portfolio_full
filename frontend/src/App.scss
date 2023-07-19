@@ -1,0 +1,77 @@
+@use "./sass/description";
+@use "./sass/footer";
+@use "./sass/navBar";
+@use "./sass/projects";
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 5rem;
+}
+
+:root {
+  --font: #88a5b7;
+  --primary-blue-background: #001520;
+  --secondary-blue-background: #012532;
+  --header-height: clamp(60px, 7vw, 90px);
+  --orange: #fc7901;
+  --side-gap: clamp(20px, 4vw, 50px);
+}
+
+.onDisplay {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  width: 100vw;
+  height: 100vh;
+  color: #013743;
+}
+
+.onDisplay > .wrapper > h1 {
+  font-size: clamp(0.5em, 8vw, 1em);
+  line-height: 1.2;
+  width: fit-content;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex > h2 {
+  width: fit-content;
+  font-size: clamp(0.2em, 8vw, 0.4em);
+  font-weight: 500;
+  display: inline-block;
+  margin: 0 0 0 20px;
+  vertical-align: middle;
+}
+
+#portfolio {
+  text-decoration: none;
+  color: #013743;
+  animation-name: portfolio;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes portfolio {
+  50% {
+    opacity: 0;
+  }
+}
+
+.notDisplayed {
+  display: none;
+}
