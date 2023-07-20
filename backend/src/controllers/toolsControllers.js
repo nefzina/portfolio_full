@@ -51,7 +51,7 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const tool = req.body;
+  const tool = req.body.name;
 
   // TODO validations (length, format...)
 

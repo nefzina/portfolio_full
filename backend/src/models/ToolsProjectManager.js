@@ -25,6 +25,19 @@ class ToolsProjectManager extends AbstractManager {
       [tool.name, tool.id]
     );
   }
+
+  deleteByTool(id) {
+    return this.database.query(`delete from ${this.table} where tool_id = ?`, [
+      id,
+    ]);
+  }
+
+  deleteByProject(id) {
+    return this.database.query(
+      `delete from ${this.table} where project_id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = ToolsProjectManager;

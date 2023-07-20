@@ -18,9 +18,11 @@ router.put("/tools/:id", toolsControllers.edit);
 router.post("/tools", toolsControllers.add);
 router.delete("/tools/:id", toolsControllers.destroy);
 
-router.get("/toolsProject/:id", toolsProjectControllers.read);
-router.put("/toolsProject/:id", toolsProjectControllers.edit);
 router.post("/toolsProject", toolsProjectControllers.add);
-router.delete("/toolsProject/:id", toolsProjectControllers.destroy);
+router.delete("/toolsProjectByTool/:id", toolsProjectControllers.destroyByTool);
+router.delete(
+  "/toolsProjectByProject/:id",
+  toolsProjectControllers.destroyByProject
+);
 
 module.exports = router;

@@ -39,8 +39,8 @@ INSERT INTO tools (name) VALUES
 
 -- create tools_project table --
 CREATE TABLE tools_project (
-  project_id int, FOREIGN KEY (project_id) REFERENCES projects(id),
-  tool_id int, FOREIGN KEY (tool_id) REFERENCES tools(id)
+  project_id int, FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
+  tool_id int, FOREIGN KEY (tool_id) REFERENCES tools(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO tools_project (project_id, tool_id) VALUES 

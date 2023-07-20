@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import left from "../assets/left-arrow.png";
+import remove from "../assets/remove.png";
 
 export default function Admin() {
   const [tab, setTab] = useState(1);
@@ -18,65 +20,108 @@ export default function Admin() {
   const HandlePost = (e) => {
     e.preventDefault();
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/tools`)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/tools`, { name: language })
       .then((res) => {
         if (res.status === 201) setMsg("done");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setMsg("error");
+      });
+
+    setLanguage("");
+    setTimeout(() => setMsg(""), 4000);
   };
 
-  const HandleDelete = (e) => {
+  const HandleDelete = (e, id) => {
     e.preventDefault();
+    // console.log(e.target.value);
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/tools`)
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/tools/${id}`)
       .then((res) => {
-        if (res.status === 201) setMsg("done");
+        if (res.status === 204) {
+          // axios
+          //   .delete(
+          //     `${import.meta.env.VITE_BACKEND_URL}/toolsProjectByTool/${
+          //       e.target.value
+          //     }`
+          //   )
+          //   .then((result) => {
+          //     if (result.status === 204) setMsg("done");
+          //   })
+          //   .catch((err) => {
+          //     console.error(err);
+          //     setMsg("error");
+          //   });
+          setMsg("error");
+        }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setMsg("error");
+      });
+
+    setTimeout(() => setMsg(""), 4000);
   };
 
   return (
     <div className="dashboard">
-      <Link to="/Home">back</Link>
-      <button className="onglet" type="button" onClick={() => setTab(1)}>
-        Projects
+      <button className="back" type="button">
+        <Link to="/Home">
+          <img src={left} alt="back-arrow" />
+        </Link>
       </button>
-      <button className="onglet" type="button" onClick={() => setTab(2)}>
-        Tools
-      </button>
+      <p className={msg === "done" ? "pop" : "hide"}>
+        Modification are successfully applied !
+      </p>
+      <p className={msg === "error" ? "pop" : "hide"}>Error! Try again !</p>
+
+      <div className="tabs">
+        <button className="tab" type="button" onClick={() => setTab(1)}>
+          Projects
+        </button>
+        <button className="tab" type="button" onClick={() => setTab(2)}>
+          Tools
+        </button>
+      </div>
 
       <div className={tab === 1 ? "proj" : "hide"}>projets</div>
       <div className={tab === 2 ? "techno" : "hide"}>
+        <form onSubmit={(e) => HandlePost(e)}>
+          <label htmlFor="newTech">Add language / framework / tool</label>
+          <div>
+            <input
+              type="text"
+              id="newTech"
+              value={language}
+              placeholder="Pyhton ..."
+              onChange={(e) => setLanguage(e.target.value)}
+            />
+            <input type="submit" value="Add" className="add" />
+          </div>
+        </form>
+
         <table>
           <tr>
-            <th>Tools List</th>
-            <th> </th>
+            <th>Tool Name</th>
+            <th>Remove</th>
           </tr>
-
           {tools &&
             tools.map((tool) => (
               <tr key={tool.name}>
                 <td>{tool.name}</td>
-                <td>
-                  <button type="button" onClick={(e) => HandleDelete(e)}>
-                    X
+                <td className="remove">
+                  <button
+                    type="button"
+                    value={tool.id}
+                    onClick={(e) => HandleDelete(e, tool.id)}
+                  >
+                    <img src={remove} alt="remove" />
                   </button>
                 </td>
               </tr>
             ))}
         </table>
-
-        <form onSubmit={(e) => HandlePost(e)}>
-          <label htmlFor="newTech">Add language / framework / tool</label>
-          <input
-            type="text"
-            id="newTech"
-            value={language}
-            placeholder="Pyhton ..."
-            onChange={(e) => setLanguage(e.target.value)}
-          />
-          <input type="submit" value="Add" />
-        </form>
       </div>
     </div>
   );
