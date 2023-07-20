@@ -1,7 +1,126 @@
 .dashboard {
+  // background: linear-gradient(45deg, rgba(0,90,151,1) 0%, rgba(7,115,139,1) 36%, rgba(5,134,149,1) 59%, rgba(68,193,193,1) 100%);
+  // background: linear-gradient(45deg, rgba(1,46,64,1) 0%, rgba(2,73,89,1) 43%, rgba(2,103,115,1) 69%, rgba(60,166,166,1) 100%);
+  background: linear-gradient(
+    45deg,
+    rgba(1, 46, 64, 1) 0%,
+    rgba(2, 73, 89, 1) 22%,
+    rgba(2, 103, 115, 1) 54%,
+    rgba(60, 166, 166, 1) 100%
+  );
   padding: 20px;
+  min-height: 100vh;
+
+  .back {
+    width: 50px;
+    height: 50px;
+    background-color: var(--orange);
+    border-radius: 50%;
+    border: none;
+    img {
+      width: 30px;
+    }
+  }
 
   .hide {
     display: none;
+  }
+
+  .pop {
+    position: absolute;
+    top: 0;
+    width: 300px;
+    left: calc(50% - 150px);
+  }
+
+  .tabs {
+    width: 90%;
+    max-width: 635px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border-bottom: 3px solid var(--beige);
+    margin-bottom: clamp(0px, 5vw, 80px);
+    .tab {
+      width: 40%;
+      max-width: 150px;
+      height: 30px;
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+      cursor: pointer;
+      border: none;
+      background-color: var(--beige);
+      color: var(--secondary-blue-background);
+      font-size: 1em;
+      font-weight: 600;
+    }
+  }
+
+  .proj {
+  }
+  .techno {
+    form {
+      width: 100%;
+      max-width: 500px;
+      height: 80px;
+      border-radius: 5px;
+      margin: 0 auto 20px;
+      color: var(--beige);
+      box-shadow: 4px 5px 15px #0000008c;
+      background-color: #024959;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      #newTech {
+        height: 30px;
+        border-radius: 5px;
+        padding: 8px;
+        margin-right: clamp(15px, 3vw, 25px);
+      }
+      .add {
+        padding: 5px 15px;
+        border-radius: 5px;
+        height: 30px;
+        cursor: pointer;
+      }
+    }
+
+    table {
+      border-radius: 15px;
+      box-shadow: 4px 5px 15px #0000008c;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      border-collapse: separate;
+      border-spacing: 0 5px;
+      overflow: hidden;
+      color: var(--beige);
+      tr {
+        background-color: #f2e3d544;
+        height: 40px;
+        td {
+          padding: 10px;
+          text-align: center;
+          button {
+            background-color: transparent;
+            width: 70px;
+            border: none;
+            cursor: pointer;
+            height: 45px;
+            img {
+              width: 30px;
+              margin: auto;
+              display: block;
+            }
+          }
+        }
+        .remove {
+          padding: 0;
+        }
+      }
+    }
   }
 }
