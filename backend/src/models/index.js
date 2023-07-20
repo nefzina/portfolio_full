@@ -31,12 +31,16 @@ const models = {};
 
 const ProjectsManager = require("./ProjectsManager");
 const ToolsManager = require("./ToolsManager");
+const ToolsProjectManager = require("./ToolsProjectManager");
 
 models.projects = new ProjectsManager();
 models.projects.setDatabase(pool);
 
 models.tools = new ToolsManager();
 models.tools.setDatabase(pool);
+
+models.toolsProject = new ToolsProjectManager();
+models.toolsProject.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model

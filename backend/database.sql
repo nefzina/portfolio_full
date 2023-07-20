@@ -39,10 +39,10 @@ INSERT INTO tools (name) VALUES
 
 -- create tools_project table --
 CREATE TABLE tools_project (
-  id_project int, FOREIGN KEY (id_project) REFERENCES projects(id),
-  id_tool int, FOREIGN KEY (id_tool) REFERENCES tools(id)
+  project_id int, FOREIGN KEY (project_id) REFERENCES projects(id),
+  tool_id int, FOREIGN KEY (tool_id) REFERENCES tools(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO tools_project (id_project, id_tool) VALUES 
+INSERT INTO tools_project (project_id, tool_id) VALUES 
 (1, 4), (1, 5), (1, 7),
 (2, 4), (2, 5), (2, 6), (2, 7), (2, 8);
