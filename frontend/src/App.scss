@@ -1,17 +1,20 @@
-@use "./sass/description";
+@use "./sass/myDescription";
 @use "./sass/footer";
 @use "./sass/navBar";
 @use "./sass/projects";
+@use "./sass/admin";
 
-body {
+* {
   margin: 0;
   padding: 0;
-  height: 100vh;
   box-sizing: border-box;
-  line-height: 1.5;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  line-height: 1.5;
   font-weight: 400;
-  font-size: 5rem;
 }
 
 :root {
@@ -20,6 +23,7 @@ body {
   --secondary-blue-background: #012532;
   --header-height: clamp(60px, 7vw, 90px);
   --orange: #fc7901;
+  --beige: #f2e3d5;
   --side-gap: clamp(20px, 4vw, 50px);
 }
 
