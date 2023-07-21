@@ -4,7 +4,7 @@ https://docs.google.com/spreadsheets/d/1TN_uodG_7pS6-eHNSlECuMZyqNXDQ9efoO6xz9Vc
 
 ## Bases de données
 une capture du MCD est disponible dans: frontend\src\assets\MCD.png
-![](backend/public/assets/images/ViVid.png)
+![](frontend/src/assets/MCD.png)
 
 ### Wireframe
 
