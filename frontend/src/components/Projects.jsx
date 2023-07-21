@@ -43,7 +43,7 @@ export default function Projects() {
 
   return (
     <div className="projects">
-      <h2>Projects</h2>
+      <h2 className="section">Projects</h2>
       <div className="wrapper">
         {projects &&
           projects.map((project) => (
@@ -61,7 +61,7 @@ export default function Projects() {
               <div className="showDetails">
                 <h2 className="projectTitle">{project.title}</h2>
                 <p className="projectDescription">{project.description}</p>
-                <h4>Tools</h4>
+                <h4 className="toolsList">Tools</h4>
                 <ul>
                   {project.tools &&
                     project.tools.forEach((x) => {
