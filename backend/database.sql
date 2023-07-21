@@ -23,7 +23,7 @@ INSERT INTO projects (title, link, image, description, is_public) VALUES
 'PiQui is a mini game created by a team of Junior developers
 including myself. The Main caracters are the cats.', 1),
 ('ViVid', 'https://vivid.remote-6.wilders.dev/',
-null,
+'/assets/images/ViVid.png',
 'ViViD is a video plateform where you can enjoy watching
 aerial scenary', 1);
 

@@ -1,18 +1,16 @@
-## Concept
+## User stories
+les user stories sont accessible via le lien ci-dessous:
+https://docs.google.com/spreadsheets/d/1TN_uodG_7pS6-eHNSlECuMZyqNXDQ9efoO6xz9Vcscw/edit?usp=sharing
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+## Bases de données
+une capture du MCD est disponible dans: frontend\src\assets\MCD.png
+![](backend/public/assets/images/ViVid.png)
 
-## Setup & Use
+### Wireframe
 
-### Windows users
+les Wireframes ont été réalisés avec Figma. ils sont accessible via ce lien :
+https://www.figma.com/file/XuUVOmW6xi8j4wGBgLIqnW/Untitled?type=design&node-id=0%3A1&mode=design&t=1TIEuUMORIMRsZcX-1
 
-Be sure to run these commands in a git terminal to avoid [issues with newline formats](https://en.wikipedia.org/wiki/Newline#Issues_with_different_newline_formats):
-
-```
-git config --global core.eol lf
-git config --global core.autocrlf false
-```
 
 ### Project Initialization
 
