@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import left from "../assets/left-arrow.png";
 import remove from "../assets/remove.png";
+import ProjectModif from "../components/ProjectModif";
 
 export default function Admin() {
   const [tab, setTab] = useState(1);
@@ -35,26 +36,10 @@ export default function Admin() {
 
   const HandleDelete = (e, id) => {
     e.preventDefault();
-    // console.log(e.target.value);
     axios
       .delete(`${import.meta.env.VITE_BACKEND_URL}/tools/${id}`)
       .then((res) => {
-        if (res.status === 204) {
-          // axios
-          //   .delete(
-          //     `${import.meta.env.VITE_BACKEND_URL}/toolsProjectByTool/${
-          //       e.target.value
-          //     }`
-          //   )
-          //   .then((result) => {
-          //     if (result.status === 204) setMsg("done");
-          //   })
-          //   .catch((err) => {
-          //     console.error(err);
-          //     setMsg("error");
-          //   });
-          setMsg("error");
-        }
+        if (res.status === 204) setMsg("done");
       })
       .catch((err) => {
         console.error(err);
@@ -84,8 +69,8 @@ export default function Admin() {
           Tools
         </button>
       </div>
+      {tab === 1 && <ProjectModif msg={msg} setMsg={setMsg} tools={tools} />}
 
-      <div className={tab === 1 ? "proj" : "hide"}>projets</div>
       <div className={tab === 2 ? "techno" : "hide"}>
         <form onSubmit={(e) => HandlePost(e)}>
           <label htmlFor="newTech">Add language / framework / tool</label>

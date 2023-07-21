@@ -8,7 +8,7 @@ export default function NavBar() {
       </Link>
       <nav>
         <Link className="navLink" to="projects" spy smooth duration={500}>
-          Projets
+          Projects
         </Link>
         <Link className="navLink" to="footer" spy smooth duration={1000}>
           Contact

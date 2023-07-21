@@ -14,6 +14,7 @@ header {
   #logo {
     color: var(--font);
     font-size: clamp(1.2em, 2vw, 1.9em);
+    cursor: pointer;
     span {
       color: var(--orange);
     }
